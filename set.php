@@ -28,7 +28,7 @@ if (isset($_POST['add_task']) and !empty($_POST['text'])){
 
 
 if (isset($_POST['edit']))
-{
+{	$page=$_GET['page'];
 	$list->update($_POST['id'], $_POST['text']);
 	header("Location: ./?page=$page");
 }
