@@ -50,7 +50,7 @@
 									</form>
 								</div>
 								<div class="col-md-1">
-									<form action="?" method="POST">
+									<form action="?page=<?php echo $page?>" method="POST">
 										<input type="hidden" name="id" value="<?php echo $list['id'];?>">
 										<button type="submit" name="edit" class="btn btn-default">
 										  <span title="Edit" class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
@@ -60,14 +60,8 @@
 							</div>
 							<?php
 					} 
-				if ($pages > 1) {
-					for($i = 1; $i <= $pages; $i++) { 
-			?>
-						<a href="/index.php?page=<?php echo $i; ?>"><?php echo $i; ?></a>
-			<?php 		
-					}
-				}
-			 ?>
+					require_once './html/pagenator.php';
+					?>
 				</div>
 			</div>
 		</div>

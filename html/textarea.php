@@ -13,7 +13,7 @@ else {
 	$do="ADD New task";
 }
 ?>
-	<form action="set.php?" method="POST">
+	<form action="set.php?page=<?php echo $page;?>" method="POST">
 		<textarea name="text" class="form-control"><?php echo $content_edit;?></textarea>
 		<input type="hidden" name="id" value="<?php echo $_POST['id'];?>">
 		<input type="submit" class="btn btn-info" name="<?php echo $state;?>" value="<?php echo $do;?>">
