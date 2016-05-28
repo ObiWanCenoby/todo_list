@@ -12,12 +12,19 @@
 	</head>
 <body>
 	<div class="container">
+		<div class="panel panel-default">
+				<div align="center" class="panel-body">
+				<?php require_once './authorization.php'?>
+			</div>
+		</div>
 		<div class="row">
 			<div align="center" class="col-md-12">
 				<div class="col-md-12"><h1>TO DO Lists .... </h1></div>
 				<div class="col-md-12">
 					<?php
-						require_once './html/textarea.php';
+						if ($_SESSION['username']) {
+								require_once './html/textarea.php';
+								}
 					?>
 				</div>
 				<div class="class="col-md-12"">
@@ -27,39 +34,17 @@
 							{$class_mode='glyphicon glyphicon-ok';$role='alert alert-success';}
 						else {$class_mode='glyphicon glyphicon-remove';$role='alert alert-danger';}
 						?>
-						
 							<div class="<?php echo $role; ?> col-md-12" role="alert">
-								<div class="col-md-1">
-									<form action="set.php?page=<?php echo $page?>" method="POST">
-										<input type="hidden" name="id" value="<?php echo $list['id'];?>">
-										<input type="hidden" name="mode" value="<?php echo $list['mode'];?>">
-										<button type="submit" class="btn btn-default" aria-label="Left Align">
-										<span title="Do this! if you push this, remove..." class="<?php echo $class_mode;?>" ria-hidden="true"></span>
-										</button>
-									</form>
-								</div>
 								<div align="left" class="col-md-9">
 									<?php echo  "<strong>-></strong> ".$list['text']." ";?>
 								</div>
-								<div class="col-md-1">
-									<form action="set.php?" method="POST">
-										<input type="hidden" name="id" value="<?php echo $list['id'];?>">
-										<button type="submit" name="dell" class="btn btn-default">
-										  <span title="Dell" class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-										</button>
-									</form>
-								</div>
-								<div class="col-md-1">
-									<form action="?page=<?php echo $page?>" method="POST">
-										<input type="hidden" name="id" value="<?php echo $list['id'];?>">
-										<button type="submit" name="edit" class="btn btn-default">
-										  <span title="Edit" class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-										</button>	
-									</form>
-								</div>
+								<?php if ($_SESSION['username']){
+											include './html/edit_tasks.php';
+												}
+								?>
 							</div>
 							<?php
-					} 
+						} 
 					require_once './html/pagenator.php';
 					?>
 				</div>

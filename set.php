@@ -9,7 +9,6 @@ if (isset($_POST['mode']))
 	if ($_POST['mode']=='1')
 		{$mode=0;}
 	else {$mode=1;}
-	//echo $_POST['id']." ".$_POST['mode'];
 	$list->set_exp($mode,$id);
 	unset ($id, $mode, $_POST);
 	$page=$_GET['page'];
@@ -25,7 +24,6 @@ if (isset($_POST['add_task']) and !empty($_POST['text'])){
 		$list->create($_POST['text']);
 		header("Location: ./?page=$page");
 }
-
 
 if (isset($_POST['edit']))
 {	$page=$_GET['page'];

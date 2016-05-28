@@ -3,7 +3,7 @@ require_once 'db.php';
 
 class Demand_Management extends Base {
 	private $table_name='list'; // таблица, что необходимо сделать.
-	private $post_per_page = 10;
+	private $post_per_page = 10; // кол-во постов на странице.
 
 	public function __construct() {
 			parent::__construct();
@@ -57,8 +57,3 @@ class Demand_Management extends Base {
 	}
 
 }
-/*
-	$post = new Demand_Management();
-	$posts = $post->get_all(); 
-	var_dump($posts) ;
-*/
