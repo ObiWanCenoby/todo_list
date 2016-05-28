@@ -18,8 +18,3 @@ else {
 		<input type="hidden" name="id" value="<?php echo $_POST['id'];?>">
 		<input type="submit" class="btn btn-info" name="<?php echo $state;?>" value="<?php echo $do;?>">
 	</form><br>
-
-
-	1. добавить авторизацию.
-	2. добавить сессию и контролировать чтобы пользователь не мог редактировать.
-	3. регистрировать, удалять...
